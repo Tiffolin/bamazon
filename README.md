@@ -12,37 +12,30 @@ npm install
 
 Open your terminal and navigate towards the bamazon folder. Initiate the bamazonCustomer.js file
 
-```
-Give the example
-```
+The following storefront will show up in your terminal. 
 
-And repeat
+![](image/1.PNG)
 
-```
-until finished
-```
+To make a purchase, follow the instruction prompt. 
 
-End with an example of getting some data out of the system or using it for a little demo
+In the example below, the customer purchased 3 den den moshi. As can be seen, there are sufficient items in stock, and thus the transaction went through. The total amount for the price of 3 den den moshi were also displayed for the customer's convenience. 
 
-## Running the tests
+![](image/4.PNG)
 
-Explain how to run the automated tests for this system
+Once the transaction has gone through, the MySQL Database will also update the inventory accordingly. Please see the following video for an example.
 
-### Break down into end to end tests
+https://drive.google.com/file/d/1aM_mzz0X0nkW-_3_65XEipKSvkoXp8mw/view
 
-Explain what these tests test and why
 
-```
-Give an example
-```
+However, if the customer tried to make a purchase that exceeds the store's inventory, the following message will be displayed.
 
-### And coding style tests
+![](image/7.PNG)
 
-Explain what these tests test and why
+Should the customer not confirm their order, the following message will be displayed. 
 
-```
-Give an example
-```
+![](image/8.PNG)
+
+
 ## Authors
 
 * **Tiffany Lin** 
