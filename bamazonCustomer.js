@@ -36,34 +36,25 @@ connection.connect(function(err) {
 function afterConnection() {
         connection.query("SELECT * FROM products", function(err, res) {
           if (err) throw err;    
-            displayProduct();
-                function displayProduct(){
-                    for (var i = 0; i < res.length; i++) {
-                        console.log("-----------------------------------------");
-                        console.log('Item ID : ' + res[i].item_id);
-                        console.log('Product Name : ' + res[i].product_name);
-                        console.log('Department Name : ' + res[i].department_name);
-                        console.log('Price : ' + res[i].price);
-                        console.log('Stock Quantity : ' + res[i].stock_quantity);
-                        console.log("-----------------------------------------");            
-                    }};
-        // function displayProduct(){
-        //             var table = new Table({
-        //                 head: ["ID", "Product", "Department", "Price", "Quanity"]
-        //               , colWidths: [100, 300,300,300,300]
-        //             });
+                var Table = require('cli-table');
+                var table = new Table({
+                    head: ['Item ID', 'Product Name ', 'Department Name ', 'Price ($) ', 'Stock Quantity ']
+                , colWidths: [10, 20, 20, 20, 20]
+                });
 
-        //             for (var i = 0; i < res.length; i++) {
-        //                 table.push([
-        //                     res[i].item_id, 
-        //                     res[i].product_name, 
-        //                     res[i].department_name, "$" + parseFloat(res[i].price).toFixed(2), 
-        //                     res[i].stock_quantity, res[i].product_sales.toFixed(2)])
-        //                 };
-                    
-        //           console.log(table.toString())
-        //         };
-  
+                for (var i = 0; i < res.length; i++) {
+                     var itemID = res[i].item_id;
+                     var productName =  res[i].product_name;
+                     var departmentName = res[i].department_name;
+                     var price = res[i].price;
+                     var stockQuantity = res[i].stock_quantity;
+
+                    table.push( 
+                [itemID,productName,departmentName,price, stockQuantity]
+                )};
+                
+                console.log(table.toString());
+ 
           console.log("PRESS THE SPACE BAR TO START YOUR ORDER")
 })};
       
@@ -139,20 +130,13 @@ function search() {
               
                           // console.log(query.sql);    
                      };
-
-
 //////////////////////
-
         })}
         else {
           console.log("\nThat's okay, come again when you are more sure.\n");
         }
       });
-
     };
-
-
-
 
 
 
